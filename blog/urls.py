@@ -17,13 +17,14 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import blog, index, post
+from .views import blog, index, post, search
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
-    path('blog/',blog),
-    path('post/', post),
+    path('', index , name="home"),
+    path('blog/',blog , name="blog"),
+    path('post/<int:pk>/', post , name="post-detail"),
+    path('search/', search , name="search"),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+<h2 class="text-success">This is the results of your search</h2>
+
+{% for post in queryset %}
+       <h3 class="text-info"><a href="{% url 'post-detail' post.id %}">{{ post.title }}</h3>
+         <br />
+            <div class="item d-flex align-items-center">
+            <div class="image"><img src="{{ post.thumbnail.url }}" alt="..." class="img-fluid"></div>
+            <div class="title">
+                <div class="d-flex align-items-center">
+                
+            
+                </div>
+            </div>
+            </div>
+        </a>
+
+{% endfor %}
+
+</div>
+<br>
+
+
+{% endblock %}
